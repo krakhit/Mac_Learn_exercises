@@ -49,7 +49,7 @@ t_lab= np.array([9,8,2])
 RM_S = 1/3 * np.sum(np.square(t_pre - t_lab))
 print('RMS:', RM_S )
 # save an array np.save('filename', arrayname) or np.savez for multiple
-# load an array np.load('filename.npy)
+# load an array np.load('filename.npy')
 # CSV  format np.savetxt('filename.csv', arrayname)  and np.loadtxt
 plt.plot(t_pre)
 plt.show()

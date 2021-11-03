@@ -15,10 +15,11 @@ rnex = np.array(rnt[0:2,:])
 ## adding the identity array to the existing array
 r1= np.array([1,1])
 rnew= np.vstack((r1,rnex))
+print(rnex)
 ## Extracting various columns into one dimensional vectors
 x_ax = rnt[:,[0]]
 y_ax = rnt[:,[1]]
 ## Ploting data point value (m) vs data value
-plt.plot(y_ax)
-plt.plot(x_ax)
-plt.show()
+#plt.plot(y_ax)
+#plt.plot(x_ax)
+#plt.show()
