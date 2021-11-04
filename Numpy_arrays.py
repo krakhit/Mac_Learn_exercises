@@ -1,24 +1,23 @@
-import matplotlib.pyplot as plt
+# Array operations 
 import numpy as np
 #print a random matrix of numbers of size 10)
 r1 = np.array([1,2,3])
 r2 = np.array([21,22,23])
 r3 = np.array([9,5,8])
+# array indexing begins from 0
+# matrix from arrays
 A_mat = np.array([r1,r2,r3])
-print('This is a vector: \n', r1)
-print('This is the 3rd  element in r1: \n', r1[2])
-print('This is a matrix: \n', A_mat)
-print('This is the 1st element in the matrix (which is a vector): \n', A_mat[0])
-print('A_(11) = ', A_mat[0,0],  'A_(12) = ', A_mat[0,1])
-print('This is an empty array: ', np.empty(2))
-print('This is an array from 0 to 9 in steps of 2 ', np.arange(0,9,2))
-#default data types are np.float64, 
-print('this is an array with int64 data type, ', np.ones(2,dtype=np.int64))
-print('A sorted array: ', np.sort(r1))
-print('A joined array:', np.concatenate((r1,r2)))
-print('number of axes of the matrix is: ', A_mat.ndim)
-print('Shape of the matrix is ', A_mat.shape)
-print('total nymber of elements of the array is ', A_mat.size)
+#matrix indexing begins from A_{11}= A[0,0]
+# np.empty() makes an empty array
+# np.arange(0,9,2) makes an array from 0 - 9 in steps of 2
+# default data types are np.float64, np.ones(2,dtype=np.int64)
+# 'A sorted array: np.sort(r1)), unfortunately this only does ascending
+# descending sort is done by reversing r2 = np.sort(r1) then r2[::-1], 
+# remember that array indexing from left is 0,1,... whereas the reverse is -1,-2,...
+# 'A joined array:', np.concatenate((r1,r2))
+# number of axes of the matrix is: ', A_mat.ndim
+# 'Shape of the matrix is ', A_mat.shape)
+#'total nymber of elements of the array is ', A_mat.size)
 print('One can also reshape the array\n ', A_mat.reshape(9,1))
 A1_new = np.expand_dims(A_mat, axis =1)
 print('One can also add a new axis', A1_new.shape)
@@ -51,5 +50,3 @@ print('RMS:', RM_S )
 # save an array np.save('filename', arrayname) or np.savez for multiple
 # load an array np.load('filename.npy')
 # CSV  format np.savetxt('filename.csv', arrayname)  and np.loadtxt
-plt.plot(t_pre)
-plt.show()
