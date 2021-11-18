@@ -1,13 +1,12 @@
 # This is a first principle code for predicting housing price using
 #1. Gradient descent
-#2. Normal equation 
 # This is an exercise from Coursera's Machine Learning course bt Andrew Ng.
-from os import PRIO_USER
 from matplotlib import colors
 import numpy as np
 import pandas as pd
 from numpy import linalg as LA, matmul
 import matplotlib.pyplot as plt
+import time
     
 #definition of cost function:
 def J_CF(X,y,teta):
@@ -18,6 +17,7 @@ def J_CF(X,y,teta):
     return jf
 
 # read dataset
+
 d_set = pd.read_csv('ex1data2.txt', sep =',', names= ['Size','# rooms','price'])
 d_arr = d_set.to_numpy()
 #get the columns
@@ -79,12 +79,16 @@ theta_c = np.transpose(theta_r)
 
 alpha  = 0.01
 Jarr =  []
-for i in range(500):
+t_in = time.time()
+it_er = 500
+for i in range(it_er):
     delta_c =  1/dim * (np.matmul(np.matmul(X_arr_mnt,X_arr_mn),theta_c) - np.matmul(X_arr_mnt,price_c))
     theta_c =  theta_c - alpha * delta_c
     jf = J_CF(X_arr_mn,price_c,theta_c)
     Jarr.append(jf)
-
+t_out = time.time()
+time_taken =  t_out- t_in
+#print(theta_c)
 ##hypothesis
 hp = np.squeeze(np.matmul(X_arr_mn,theta_c),1)
 ##convergence of the cost function
@@ -104,6 +108,7 @@ axo[2].set_xlabel('Iterations')
 fis.suptitle('Data vs prediction')
 plt.show()
 print('The house size is an appropriate feature, that indicates the price variation as compared to number of rooms.')
+print('Gradient descent took '+ str(time_taken) + 'seconds to converge in ' + str(it_er) + ' iterations')
 
 
 # # test data for prediction, passes test
