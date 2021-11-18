@@ -103,6 +103,7 @@ axo[2].set_ylabel('Cost function')
 axo[2].set_xlabel('Iterations')
 fis.suptitle('Data vs prediction')
 plt.show()
+print('The house size is an appropriate feature, that indicates the price variation as compared to number of rooms.')
 
 
 # # test data for prediction, passes test
