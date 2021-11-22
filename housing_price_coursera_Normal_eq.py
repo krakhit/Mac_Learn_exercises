@@ -1,8 +1,11 @@
 # This is a first principle code for predicting housing price using
 #1Normal equation
 # This is an exercise from Coursera's Machine Learning course bt Andrew Ng.
+# I like to work with vectors, and sometimes adding an extra dimension in the arrays allows one to differentiate
+#between a vector and its transpose.
 
 import numpy as np
+from numpy.core.fromnumeric import shape
 import pandas as pd
 from numpy import linalg as LA, matmul
 import matplotlib.pyplot as plt
@@ -12,7 +15,7 @@ import time
 
 d_set = pd.read_csv('ex1data2.txt', sep =',', names= ['Size','# rooms','price'])
 d_arr = d_set.to_numpy()
-#get the columns
+#get the columns (dim,)
 siz = np.array(d_arr[:,0])
 dim = np.size(siz)
 room = np.array(d_arr[:,1])
@@ -25,7 +28,7 @@ room_r = np.array([room])
 price_r = np.array([price])
 ons_r = np.array([ons])
 
-#this converts it into a column vector with 1 columns ->shape (dim,1) 
+#this converts it into a column vector with shape (dim,1)  elements are like [ [1], [2], [3], ... ,dim]
 siz_c = np.transpose(siz_r)
 room_c = np.transpose(room_r)
 price_c = np.transpose(price_r)
@@ -37,15 +40,15 @@ X_arr = np.transpose(np.array([ons,siz,room]))
 X_arrt= np.transpose(X_arr)
 
 
-#Normal equation, theta will come out like siz_c (dim,1)
+#Normal equation,  will come out like siz_c (dim,1)
 t_in = time.time()
-# Xty = np.matmul(X_arrt,siz_c)
-# Xtx = np.matmul(X_arrt,X_arr)
-# Xtx_in = LA.inv(Xtx)
-# theta_c = np.matmul(Xtx_in,Xty)
-
-theta_r = np.array([np.matmul(LA.inv(np.matmul(X_arrt,X_arr)),np.matmul(X_arrt,price))])
-theta_c = np.transpose(theta_r)
+# X' Y
+Xty = np.matmul(X_arrt,price_c)
+# (X' X)^{-1}
+Xtx = np.matmul(X_arrt,X_arr)
+Xtx_in = LA.inv(Xtx)
+#theta = (X' X)^{-1}. X'. y
+theta_c = np.matmul(Xtx_in,Xty)
 t_out =time.time()
 print('The fitting parameters from the normal eq are ',theta_c)
 print('Time taken: ',t_out-t_in)
