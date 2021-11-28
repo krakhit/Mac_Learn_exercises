@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from numpy.core.fromnumeric import size
-from sklearn import datasets, linear_model, preprocessing
+from sklearn import linear_model
 import pandas as pd
 import time
 
@@ -11,11 +10,12 @@ d_y = d_set['price']
 t1=time.time()
 reg = linear_model.LinearRegression()
 reg.fit(d_X,d_y)
-print('Coefficients:', reg.coef_)
+print('Predicted parameters:', reg.coef_)
 t2=time.time()
 df_test = pd.DataFrame(np.array([[1650, 3]]), columns=['Size','# rooms'])
 y_pred=reg.predict(d_X)
 y_pred_test = reg.predict(df_test)
+print('Test case\n', df_test)
 print(y_pred_test)
 print('Time taken: ', t2-t1)
 fis,axo = plt.subplots(1,2,sharey=False)
