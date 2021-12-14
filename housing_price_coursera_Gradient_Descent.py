@@ -87,7 +87,7 @@ for i in range(it_er):
     jf = J_CF(X_arr_mn,price_c,theta_c)
     Jarr.append(jf)
 t_out = time.time()
-time_taken =  t_out- t_in
+time_taken =  t_out - t_in
 print(theta_c)
 ##hypothesis
 hp = np.squeeze(np.matmul(X_arr_mn,theta_c),1)
