@@ -26,7 +26,7 @@ def similarity(pass_a,pass_b):
 
     return round(res*0.1,2)
 
-df =pd.read_csv('titanic_clean_up.csv')
+df =pd.read_csv('/Users/karthikinbasekar/Documents/GitHub/Mac_Learn_exercises/Titanic/titanic_clean_up.csv')
 col_names = df.columns.values
 #print(col_names)
 #['PassengerId' 'Survived' 'Pclass' 'Name' 'Sex' 'Age' 'SibSp' 'Parch'
@@ -40,6 +40,7 @@ for i in range(1,q):
     for j in range(1,q):
         us_a = df[df['PassengerId'] == i].iloc[0]
         us_b = df[df['PassengerId'] == j].iloc[0]
-        print('Input',i,j, 'output:', similarity(us_a,us_b))
+        
+        print('Passenger_Id',i,j, 'Similarity  Score:', similarity(us_a,us_b))
         
 

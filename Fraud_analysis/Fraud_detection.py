@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-df =pd.read_csv('/Users/karthikinbasekar/Documents/test/test_BMC/FraudData.csv')
+df =pd.read_csv('/Users/karthikinbasekar/Documents/GitHub/Mac_Learn_exercises/Fraud_analysis/FraudData.csv')
 # get the column names
 col_names = df.columns.values
 #['Transaction ID' 'Type' 'Amount' 'Area Code' 'Client']

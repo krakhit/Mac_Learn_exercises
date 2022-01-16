@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-# data_clean_up
+# data_clean_ups
 df =pd.read_csv('titanic.csv')
 col_names = df.columns.values
 #['PassengerId' 'Survived' 'Pclass' 'Name' 'Sex' 'Age' 'SibSp' 'Parch'
